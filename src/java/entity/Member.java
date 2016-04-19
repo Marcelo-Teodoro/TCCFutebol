@@ -5,7 +5,7 @@
  */
 package entity;
 
-import utilities.EnumPosicao;
+import utilities.EnumNivelAcesso;
 import java.util.Date;
 import java.util.List;
 
@@ -13,55 +13,55 @@ import java.util.List;
  *
  * @author Pgz
  */
-public class Jogador {
+public class Member {
     
-    private Integer idJogador;
-    private String nomeJogador;
+    private Integer idMember;
+    private String nomeMember;
     private Date dtNascimento;
     private String endereco;
     private Integer cpf;
     private Integer rg;
     private String eMail;
-    private EnumPosicao posicao;
+    private EnumNivelAcesso nivelAcesso;
     private List<Integer> telefone;
 
-    public Jogador() {
+    public Member() {
     }
 
-    public Jogador(Integer idJogador, String nomeJogador, Date dtNascimento, String endereco, Integer cpf, Integer rg, List<Integer> telefone, String eMail, EnumPosicao posicao) {
-        this.idJogador = idJogador;
-        this.nomeJogador = nomeJogador;
+    public Member(Integer idMember, String nomeMember, Date dtNascimento, String endereco, Integer cpf, Integer rg, List<Integer> telefone, String eMail, EnumNivelAcesso posicao) {
+        this.idMember = idMember;
+        this.nomeMember = nomeMember;
         this.dtNascimento = dtNascimento;
         this.endereco = endereco;
         this.cpf = cpf;
         this.rg = rg;
         this.telefone = telefone;
         this.eMail = eMail;
-        this.posicao = posicao;
+        this.nivelAcesso = posicao;
     }
 
-    public EnumPosicao getPosicao() {
-        return posicao;
+    public EnumNivelAcesso getPosicao() {
+        return nivelAcesso;
     }
 
-    public void setPosicao(EnumPosicao posicao) {
-        this.posicao = posicao;
+    public void setPosicao(EnumNivelAcesso nivelAcesso) {
+        this.nivelAcesso = nivelAcesso;
     }
 
-    public Integer getIdJogador() {
-        return idJogador;
+    public Integer getIdMember() {
+        return idMember;
     }
 
-    public void setIdJogador(Integer idJogador) {
-        this.idJogador = idJogador;
+    public void setIdMember(Integer idMember) {
+        this.idMember = idMember;
     }
 
-    public String getNomeJogador() {
-        return nomeJogador;
+    public String getNomeMember() {
+        return nomeMember;
     }
 
-    public void setNomeJogador(String nomeJogador) {
-        this.nomeJogador = nomeJogador;
+    public void setNomeMember(String nomeMember) {
+        this.nomeMember = nomeMember;
     }
 
     public Date getDtNascimento() {

@@ -1,6 +1,7 @@
 package dao;
 
 import connection.ConnectionManager;
+import entity.Member;
 import entity.UserAdmin;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,9 +13,9 @@ import java.sql.Statement;
  *
  * @author Pgz
  */
-public class UserDao {
+public class MemberDAO {
     
-    public int save(UserAdmin user) {
+    public int save(Member member) {
 
         //inicializando o retorno da função, caso tenha algum problema deve ser retornar o valor -1
         int resultado = -1;
@@ -22,15 +23,15 @@ public class UserDao {
         Connection conn = ConnectionManager.getConnection();
         try {
             PreparedStatement stmt = null;
-            String QUERY_INSERT = "insert into useradmin (name, login, pass) values (?, ?, ?)";
-            String QUERY_UPDATE = "update user set name = ?, login = ?, pass = ? where iduseradmin = ? ";
+            String QUERY_INSERT = "insert into useradmin (name, dataNascimento, endereco, cpf, rg, email, nivelacesso) values (?, ?, ?, ?, ?, ?, ?)";
+            String QUERY_UPDATE = "update user set name = ?, dataNascimento = ?, endereco = ? , cpf = ?, rg = ?, email = ?, nivelacesso = ? where iduseradmin = ? ";
 
-            if (user.getIdUserAdmin()== null) {
+            if (member.getIdMember()== null) {
 
                 stmt = conn.prepareStatement(QUERY_INSERT, Statement.RETURN_GENERATED_KEYS);
-                stmt.setString(1, user.getNome());
-                stmt.setString(2, user.getLogin());
-                stmt.setString(3, user.getPassword());
+                stmt.setString(1, member.getNomeMember());
+//                stmt.setString(2, member.getLogin());
+//                stmt.setString(3, member.getPassword());
 
                 stmt.executeUpdate();
                 ResultSet rs = stmt.getGeneratedKeys();
@@ -44,15 +45,15 @@ public class UserDao {
             } else {
 
                 stmt = conn.prepareStatement(QUERY_UPDATE);
-                stmt.setString(1, user.getNome());
-                stmt.setString(2, user.getLogin());
-                stmt.setString(3, user.getPassword());
-                stmt.setInt(4, user.getIdUserAdmin());
-
-                stmt.executeUpdate();
-                resultado = user.getIdUserAdmin(); // alterei aqui pra ficar igual ao do ProfessorDAO
-                conn.close();
-                stmt.close();
+                stmt.setString(1, member.getNomeMember());
+//                stmt.setString(2, member.getLogin());
+//                stmt.setString(3, member.getPassword());
+//                stmt.setInt(4, member.getIdUserAdmin());
+//
+//                stmt.executeUpdate();
+//                resultado = member.getIdUserAdmin(); // alterei aqui pra ficar igual ao do ProfessorDAO
+//                conn.close();
+//                stmt.close();
             }
 
         } catch (Exception ex) {

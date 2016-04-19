@@ -1,6 +1,6 @@
 package servlets;
 
-import dao.UserDao;
+import dao.MemberDAO;
 import entity.Team;
 import entity.UserAdmin;
 import java.io.IOException;
@@ -22,7 +22,7 @@ public class MainServlet extends HttpServlet {
         // Ação da primeira Tela
         if (acao.equals("cadastrarJogador")) {
 
-            //UserDao login = new UserDao();
+            //UserDao login = new MemberDAO();
 
 //            if (user.getIdUserAdmin()!= null){
 //                user.seteMail("darkskullwow@gmail.com" );

@@ -1,7 +1,7 @@
 package servlets;
 
 import dao.ImageDao;
-import dao.UserDao;
+import dao.MemberDAO;
 import entity.Imagem;
 import entity.UserAdmin;
 import java.io.File;
@@ -32,7 +32,7 @@ public class ServletUpload extends HttpServlet {
         System.out.println("ProcessRequest");        
          
         Integer id = null;
-        UserDao userdao = new UserDao();
+        MemberDAO userdao = new MemberDAO();
         UserAdmin user = new UserAdmin();        
         
         Imagem imagem = new Imagem();  

@@ -18,7 +18,7 @@ public class Team {
     private String presidente;
     private String email;
     private List<Integer> telefone;
-    private List<Jogador> idJogador;
+    private List<Member> idJogador;
     private Imagem teamSymbol;
 
     public Integer getIdTeam() {
@@ -93,11 +93,11 @@ public class Team {
         this.telefone = telefone;
     }
 
-    public List<Jogador> getIdJogador() {
+    public List<Member> getIdJogador() {
         return idJogador;
     }
 
-    public void setIdJogador(List<Jogador> idJogador) {
+    public void setIdJogador(List<Member> idJogador) {
         this.idJogador = idJogador;
     }
 
