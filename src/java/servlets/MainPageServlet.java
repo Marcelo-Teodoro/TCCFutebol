@@ -1,0 +1,73 @@
+
+package servlets;
+
+import dao.UserDao;
+import entity.Team;
+import entity.UserAdmin;
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ *
+ * @author Pgz
+ */
+public class MainPageServlet extends HttpServlet{
+    
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String acao = request.getParameter("acao");
+        System.out.println("AÇAO = " + acao);
+        
+        // Ação da primeira Tela, botões Login ou Register
+        if (acao.equals("chooseLorR")) {            
+            if (request.getParameter("registerBtn") != null){
+            request.getRequestDispatcher("RegisterAccount.jsp").forward(request, response);
+            }
+            if (request.getParameter("loginBtn") != null){
+            request.getRequestDispatcher("LoginPage.jsp").forward(request, response); 
+            }
+        }
+        
+        // Ação da primeira Tela, botões Login ou Register
+        if (acao.equals("logon")) {  
+            
+            UserDao login = new UserDao();
+            UserAdmin user = login.byLoginPass(request.getParameter("txtLogin"), request.getParameter("txtPass"));
+
+            if (user.getIdUserAdmin()!= null){
+                user.seteMail("darkskullwow@gmail.com" );
+                Team time = new Team();
+                time.setTeamName("Porto F.C");
+                user.setTeam(time);
+                request.setAttribute("User", user);
+                request.getRequestDispatcher("UserMainPage.jsp").forward(request, response);
+                           }else{
+    //          request.setAttribute("LoginFail", "Usuário ou Senha incorretos.");
+                request.getRequestDispatcher("MainPage.jsp").forward(request, response);
+           }
+            
+        }
+        
+        if(acao.equals("imagem")){
+            System.out.println("deu");
+        }
+        
+    }
+        
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+         throws ServletException, IOException {
+        processRequest(request, response);
+        
+    }
+    
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+    
+}
