@@ -1,8 +1,19 @@
 #cadMember{
-    //text-align: left;
-    margin-left: 50em;
+    color: white;
+    background-color: black;
+    margin-left: 45em;
+    margin-right: 45em;
+    padding-left: 2em;
+    padding-bottom: 2em;
+    border: double 1em aquamarine;
+    border-radius: 1em;
+    animation: cubic-bezier;
+    animation-delay: 2s;
+    animation-duration: 22s;
+    animation-play-state: running;
+    animation-direction: alternate;
 }
 
 h1{
-    margin-left: 25em;
+    text-align: center;
 }

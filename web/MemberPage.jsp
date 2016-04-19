@@ -12,7 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Member Register</title>
     </head>
-    <body center>
+    <body>
         <h1>Member Page</h1>
         <div id="cadMember">
             <form name="CadMember" action="CadJogador" method="POST" ><br/><br/>
